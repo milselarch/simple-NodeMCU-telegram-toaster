@@ -35,7 +35,7 @@ void setup() {
     Serial.begin(57600);
     delay(3000);
 
-    myservo.attach(D1);
+    myservo.attach(D3, 900, 2100);
     
     // attempt to connect to Wifi network:
     Serial.print("Connecting Wifi: ");
@@ -61,7 +61,8 @@ void setup() {
  
 void Bot_ReplyMessages() {
     Serial.println(">>>telegram>>>");
-    
+
+    // loop through all the messages recieved from user
     for (int i = 1; i < bot.message[0][0].toInt() + 1; i++) {
         String chatID = bot.message[i][4];
         String message = bot.message[i][5];
@@ -92,8 +93,6 @@ void Bot_ReplyMessages() {
     bot.message[0][0] = "";   // All messages have been replied - reset new messages
 }
 
-long counts = 0;
-
 void loop() {
     if (millis() > Bot_lasttime + Bot_mtbs) {
         bot.getUpdates(bot.message[0][1]);   // launch API GetUpdates up to xxx message
@@ -101,14 +100,10 @@ void loop() {
         //Bot_EchoMessages();                // reply to message with Echo
         Bot_lasttime = millis();
         Serial.println(degree);
-        
-        Serial.print("COUNTS: ");
-        Serial.println(counts);
     }
 
     myservo.write(degree);
     delay(30);
-    counts++;
 }
 
 
