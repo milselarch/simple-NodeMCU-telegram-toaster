@@ -21,10 +21,10 @@ WiFiManager wifiManager;
 Servo myservo;
 
 // Initialize Telegram BOT
-#define BOTtoken "YOUR_BOT_TOKEN"  //token of TestBOT
+#define BOTtoken "YOUR_BOT_TOKEN" /token of TestBOT
 #define BOTname "YOUR_BOT_NAME"
-#define YOUR_BOT_USERNAME "YOUR_BOT_USERNAME"
-TelegramBOT bot(BOTtoken, BOTname, YOUR_BOT_USERNAME);
+#define BOTusername "YOUR_BOT_USERNAME"
+TelegramBOT bot(BOTtoken, BOTname, BOTusername);
 
 int Bot_mtbs = 1000; //mean time between scan messages
 long Bot_lasttime;   //last time messages' scan has been done
