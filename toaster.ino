@@ -15,7 +15,7 @@
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 
 const int toastDegree = 0;
-const int untoastDegree = 90;
+const int untoastDegree = 180;
 
 WiFiManager wifiManager;
 Servo myservo;
@@ -28,7 +28,7 @@ TelegramBOT bot(BOTtoken, BOTname, YOUR_BOT_USERNAME);
 
 int Bot_mtbs = 1000; //mean time between scan messages
 long Bot_lasttime;   //last time messages' scan has been done
-int degree = toastDegree;
+int degree = untoastDegree;
 
 void setup() {
     //pinMode(D1, OUTPUT);
